@@ -8,15 +8,18 @@
   <!-- Latest compiled and minified CSS -->
   <link rel="stylesheet" type="text/css" href="css/custom.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
   <!-- <link href="css/index.css" rel="stylesheet" type="text/css" /> -->
 
   <!-- <script type="text/javascript" src="js/auto_complete.js"></script> -->
   <script type="text/javascript" src="js/main_operation.js"></script>
+  <script type="text/javascript" src="js/account.js"></script>
   <!-- <script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
   <script type="text/javascript" src="js/jquery.autocomplete.min.js"></script> -->
   <script>if (typeof module === 'object') {window.module = module; module = undefined;}</script>
   <script src="js/jquery-3.1.1.min.js"></script>
   <script type="text/javascript" src="js/auto_complete.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <script>if (window.module) module = window.module;</script>
   <script src="https://code.responsivevoice.org/responsivevoice.js"></script>
   <script type="text/javascript">
@@ -31,30 +34,88 @@
 
 </head>
 <body>
-  <div id="app-content" class="row">
-    <div class="col-md-2" style="margin:10px;">
-        choose dictionary here
+  <div id="header-content">
+    <div id ="log-in" class="nothing" style="margin:10px; display: block">
+      <span> Email: <input type="text" name="account" id="account-place" value = ""></span>
+      <span> Password: <input type="password" name="password" id="password-place" value = ""></span>
+      <button class="btn btn-default" onclick="validateLogin();"> Log In </button>
+      <button type="button" class="btn btn-default" data-toggle="modal" data-target="#myModal"> Sign Up </button>
     </div>
-    <div class="col-md-8"  style="margin: 10px;">
-      <div class="input-group " style=" margin: 0 auto; width: 100%">
-        <input id="word-search" type="text" name="search-place" class="form-control" value="" placeholder="Search for...">
-        <span class="input-group-btn">
-          <button class="btn btn-default" type="button" onclick="findDefinition();">Search</button>
-        </span>
-
-      </div><!-- /input-group -->
-      <div id="suggest-box" style="display: none"></div>
-    </div><!-- /.col-lg-6 -->
+    <div id="after-login" class="nothing" style="margin: 10px; display: none">
+      <span><button class="btn btn-default" onclick="displayHistory();">History</button></span>
+      <span><button class="btn btn-default" onclick="logout();">Logout</button></span>
+    </div>
   </div>
-  <div id="word_output" style="display: none">
+  <!-- Modal -->
+  <div id="myModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
 
-  </div>
-  <div id="word-definition" style="margin: 20px;">
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Sign Up</h4>
+        </div>
+        <div class="modal-body">
+          <table>
+            <tbody>
+              <tr>
+                <td>
+                  Name:
+                </td>
+                <td>
+                  <input type="text" id="account-name" class="my-input" value="" placeholder="name">
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  Email:
+                </td>
+                <td>
+                  <input type="text" id="account-email" class="my-input" value="" placeholder="email">
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  Password:
+                </td>
+                <td>
+                  <input type="password" id="account-password" class="my-input" value="" placeholder="**********">            </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal" onclick="validateSignup();">Save</button>
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div>
 
-  </div>
-  <div id="word_image" style="margin: 20px;">
+      </div>
+    </div>
+    <div id="app-content" class="row">
 
-  </div>
-</body>
+      <div class="col-md-8"  style="margin: 10px;">
+        <div class="input-group " style=" margin: 0 auto; width: 100%">
+          <input id="word-search" type="text" name="search-place" class="form-control" value="" placeholder="Search for...">
+          <span class="input-group-btn">
+            <button class="btn btn-default" type="button" onclick="findDefinition();">Search</button>
+          </span>
 
-</html>
+        </div><!-- /input-group -->
+        <div id="suggest-box" style="display: none"></div>
+      </div><!-- /.col-lg-6 -->
+    </div>
+    <div id="tracklist">
+      <ul  id="word_track_list" class="list group">
+      </ul>
+    </div>
+    <div id="word_output" style="display: none">
+    </div>
+    <div id="word-definition" style="margin: 20px;">
+    </div>
+    <div id="word_image" style="margin: 20px;">
+    </div>
+  </body>
+
+  </html>

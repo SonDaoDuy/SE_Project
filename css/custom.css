@@ -43,3 +43,18 @@
   z-index: 1;
   display: none;
 }
+
+.error-alert{
+    font-size: 100%;
+    color: red;
+    position: absolute;
+    display: block;
+}
+
+tr{
+    height: 55px;
+}
+
+td{
+    min-width: 100px;
+}

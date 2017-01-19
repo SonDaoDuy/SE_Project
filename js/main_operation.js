@@ -231,3 +231,8 @@ function getToken() {
    return '<div class="suggest-item"><a href="#" class="cross-ref-link">'+word+'</a></div>';
  }
 
+ function findMeaningFromTrack(track_value){
+  document.getElementById("word_track_list").innerHTML = "";
+  getWordDef(track_value);
+ }
+
