@@ -17,23 +17,23 @@ function getData(url, urlData) {
   });
 }
 
-function findDefinition(){
-  var input = document.getElementById("word-search");
-  var word = input.value;
-  //console.log(word);
-  getWordDef(word);
-}
+// function findDefinition(){
+//   var input = document.getElementById("word-search");
+//   var word = input.value;
+//   //console.log(word);
+//   getWordDef(word);
+// }
 
-function getWordDef(word){
-  var link = "http://52.36.12.106/api/search/word/" + word;
-  var xmlHttp = new XMLHttpRequest();
+// function getWordDef(word){
+//   var link = "http://52.36.12.106/api/search/word/" + word;
+//   var xmlHttp = new XMLHttpRequest();
 
-      xmlHttp.open( "GET", link, false ); // false for synchronous request
-      xmlHttp.send( null );
-      var myArr = JSON.parse(xmlHttp.responseText);
-      displayDefinition(myArr);
-      console.log(xmlHttp.responseText);
-    }
+//       xmlHttp.open( "GET", link, false ); // false for synchronous request
+//       xmlHttp.send( null );
+//       var myArr = JSON.parse(xmlHttp.responseText);
+//       displayDefinition(myArr);
+//       console.log(xmlHttp.responseText);
+//     }
 
     function parseEWord(word_input){
       var eWord = "";
@@ -169,7 +169,7 @@ function getToken() {
 
     function displayDefinition(value){
 
-      if(value.status == true){
+      if(value.found == true){
         var word = value.word;
         //parse html of word
         var e_word = parseEWord(word.word);
@@ -184,10 +184,10 @@ function getToken() {
         //showImage(word.word);
       }
 
-      if(value.status == false){
-
+      if(value.found == false){
+        alert("No information about this word!")
       }
-
+      document.getElementById("tracklist").innerHTML = "";
     }
 
     function runSearch(event){
@@ -231,8 +231,5 @@ function getToken() {
    return '<div class="suggest-item"><a href="#" class="cross-ref-link">'+word+'</a></div>';
  }
 
- function findMeaningFromTrack(track_value){
-  document.getElementById("word_track_list").innerHTML = "";
-  getWordDef(track_value);
- }
+
 
