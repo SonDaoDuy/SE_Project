@@ -6,3 +6,40 @@
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     padding: 12px 16px;
 }
+
+/******************* word **********************/
+.word-definition {
+  font-weight: bold;
+  font-size: medium;
+  padding-left: 10px;
+  margin-top: 10px;
+}
+
+.word-category {
+  background-color: #234b9a;
+  font-weight: bold;
+  font-size: medium;
+  color: white;
+  padding: 0px 5px;
+  margin-top: 9px;
+}
+
+.word-example {
+  padding-left: 30px;
+  margin-bottom: 5px;
+}
+
+.word-phrase {
+  color: #234b9a;
+}
+
+#suggest-box {
+  position: absolute;
+  padding: 10px;
+  border: 1px solid #CCCCCC;
+  margin-top: 2px;
+  width: 350px;
+  background-color: #eff1f6;
+  z-index: 1;
+  display: none;
+}
