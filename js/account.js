@@ -52,6 +52,7 @@ function logout(){
             //clear all content function here
             document.getElementById("word-definition").innerHTML = "";
             document.getElementById("word_output").innerHTML = "";
+            document.getElementById("tracklist").innerHTML = "";
         }
     }
     //var sent_data = "token="+token;
